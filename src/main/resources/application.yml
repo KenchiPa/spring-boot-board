@@ -9,10 +9,14 @@ logging:  # ?? ??
 
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/board  # MySQL ?? 3306 port - 'board' ??????? ??
-    username: hrpark  # ?? ??
-    password: 1234
-    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://localhost:3306/board  # MySQL ?? 3306 port - 'board' ??????? ??
+#    username: hrpark  # ?? ??
+#    password: 1234
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+    # h2 Database
+    url: jdbc:h2:mem:testdb
+    username: sa
+    driver-class-name: org.h2.Driver
   jpa:
     open-in-view: false
     defer-datasource-initialization: true  # ???? ?????? ???? ??? ??  /resources/data.sql ??? ???? ??.
@@ -58,7 +62,7 @@ spring:
   datasource:
     url: ${JAWSDB_URL}
     driver-class-name: com.mysql.cj.jdbc.Driver
-  jpa.hibernate.ddl-auto: create
+  jpa.hibernate.ddl-auto: create-drop
   sql.init.mode: always  # /resources/data.sql ?? ??? ???? NEVER, ALWAYS, EMBEDDED
 
 ---
